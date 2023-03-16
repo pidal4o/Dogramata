@@ -1,0 +1,60 @@
+﻿@model DiplomaApp.Models.GlassPane.GlassPaneParent
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>GlassPaneParent</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProfileType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProfileType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProfileTypeMaterial)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProfileTypeMaterial)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WindowType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WindowType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WingsCount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WingsCount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.User.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Length)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Length)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Hight)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Hight)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.GlassPaneId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

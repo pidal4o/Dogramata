@@ -1,0 +1,22 @@
+﻿@model DiplomaApp.Models.GlassPane.GlassPaneParent
+@using DiplomaApp.Models.GlassPane
+@using Microsoft.AspNetCore.Components
+
+<table class="table">
+@foreach(var item in Model.Wings)
+{
+                <div class="form-group">
+                <label asp-for="Length" class="control-label"></label>
+                <input asp-for="Length" class="form-control" />
+                <span asp-validation-for="Length" class="text-danger"></span>
+            </div>
+           <tr>
+            <td>
+                @Html.DisplayFor(m => item.GlassPaneId)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Length)
+            </td>
+        </tr>
+}
+</table>
