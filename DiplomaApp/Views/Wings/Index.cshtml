@@ -1,0 +1,54 @@
+﻿@using DiplomaApp.Models.GlassPane
+@model List<DiplomaApp.Models.GlassPane.Wing>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Крилa на прозорец @Model.FirstOrDefault().GlassPaneId</h1>
+
+@if (ViewBag.Error != null)
+{
+    <h3 style="color:red;"> @ViewBag.Error</h3>
+}
+
+<form asp-action="Create">
+    @for (int index = 0; index < Model.Count(); index++)
+    {
+        <input type="hidden" asp-for="@Model[index].WingId" />
+        <input type="hidden" asp-for="@Model[index].GlassPaneId" />
+        <input type="hidden" asp-for="@Model[index].Hight" />
+
+        <h3>Крило: @(index+1)</h3>
+
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <label class="control-label">Отваряемо крило: </label>
+                <input class="form-check-input" asp-for="@Model[index].IsOpen" />
+            </label>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <label class="control-label">Комбинирано отваряне: </label>
+                <input class="form-check-input" asp-for="@Model[index].IsCombined" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Посока на отваряне: ляво/дясно</label>
+            <select asp-for="@Model[index].OpenDirection" class="form-control" asp-items="Html.GetEnumSelectList<OpenDirection>()">
+                </select>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Държина на крилото: </label>
+            <input asp-for="@Model[index].Length" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Височина на крилото: @Model[index].Hight см.</label>
+        </div>
+        <hr></hr>
+    }
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>

@@ -1,4 +1,5 @@
 using DiplomaApp.Data;
+using DiplomaApp.Helpers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,6 +25,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IHelperFuncs, HelperFuncs>();
 
 var app = builder.Build();
 

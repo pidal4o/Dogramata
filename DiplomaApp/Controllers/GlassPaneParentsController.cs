@@ -7,22 +7,29 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DiplomaApp.Data;
 using DiplomaApp.Models.GlassPane;
+using DiplomaApp.Helpers;
 
 namespace DiplomaApp.Controllers
 {
     public class GlassPaneParentsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHelperFuncs _helperFuncs; 
 
-        public GlassPaneParentsController(ApplicationDbContext context)
+        public GlassPaneParentsController(
+            ApplicationDbContext context,
+            IHelperFuncs helperFuncs)
         {
             _context = context;
+            _helperFuncs = helperFuncs;
         }
 
         // GET: GlassPaneParents
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.GlassPaneParent.Include(g => g.User);
+            var asd = await _helperFuncs.CalculatePrice(30);
+
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -71,25 +78,33 @@ namespace DiplomaApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(GlassPaneParent glassPaneParent)
         {
-            if (ModelState.IsValid)
+            for (int i = 0; i < glassPaneParent.WingsCount; i++)
             {
-
-
-                _context.Add(glassPaneParent);
-
-                var wings = new Wing()
+                var wing = new Wing()
                 {
-                    Hight = 12,
-                    Length = 143
+                    GlassPaneId = glassPaneParent.GlassPaneId,
+                    Hight = glassPaneParent.Hight,
+                    Length = glassPaneParent.Length / glassPaneParent.WingsCount,
                 };
 
-                glassPaneParent.Wings.Add(wings);
-
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                glassPaneParent.Wings.Add(wing);
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", glassPaneParent.UserId);
-            return View(glassPaneParent);
+            await _context.AddAsync(glassPaneParent);
+
+            await _context.SaveChangesAsync();
+
+             return RedirectToAction(nameof(Index), "Wings", new { id = glassPaneParent .GlassPaneId});
+
+
+            //if (ModelState.IsValid)
+            //{
+            //    _context.Add(glassPaneParent);
+
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", glassPaneParent.UserId);
+            //return View(glassPaneParent);
         }
 
         // GET: GlassPaneParents/Edit/5

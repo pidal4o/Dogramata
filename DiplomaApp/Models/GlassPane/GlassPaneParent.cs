@@ -10,7 +10,7 @@ namespace DiplomaApp.Models.GlassPane
         public ProfileTypeEnum ProfileType { get; set; }
         public ProfileTypeMaterialEnum ProfileTypeMaterial { get; set; }
         public WindowTypeEnum WindowType { get; set; }
-        public int WingsCount { get; set; }
+        public int WingsCount { get; set; } = 1;
         public List<Wing> Wings { get; set; } = new List<Wing>();
 
         public string UserId { get; set; }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DiplomaApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230316133901_Values")]
-    partial class Values
+    [Migration("20230318151808_prices")]
+    partial class prices
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -113,6 +113,25 @@ namespace DiplomaApp.Data.Migrations
                     b.HasKey("PPDId");
 
                     b.ToTable("PPD");
+                });
+
+            modelBuilder.Entity("DiplomaApp.Models.Price", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Element")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("PriceValue")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Price");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

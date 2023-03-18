@@ -2,7 +2,6 @@
 using DiplomaApp.Models.GlassPane;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using DiplomaApp.Data.Migrations;
 
 namespace DiplomaApp.Data
 {
@@ -16,8 +15,7 @@ namespace DiplomaApp.Data
         public DbSet<PPD> PPD { get; set; }
         public DbSet<GlassPaneParent> GlassPaneParent { set; get; }
         public DbSet<Wing> Wing { set; get; }
-
-        public DbSet<Values> values { get; set; }
+        public DbSet<Price> Price { get; set; }
 
     }
 }
