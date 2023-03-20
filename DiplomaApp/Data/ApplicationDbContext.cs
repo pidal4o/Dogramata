@@ -1,4 +1,5 @@
 ﻿using DiplomaApp.Models;
+using DiplomaApp.Models.Catalog;
 using DiplomaApp.Models.GlassPane;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,7 @@ namespace DiplomaApp.Data
         public DbSet<GlassPaneParent> GlassPaneParent { set; get; }
         public DbSet<Wing> Wing { set; get; }
         public DbSet<Price> Price { get; set; }
+        public DbSet<Catalog> Catalog { get; set; }    
 
     }
 }
