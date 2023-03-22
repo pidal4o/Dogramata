@@ -1,43 +1,54 @@
-﻿@model IEnumerable<DiplomaApp.Models.GlassPane.GlassPaneParent>
+﻿@model List<DiplomaApp.Models.GlassPane.GlassPaneParent>
 
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
-
+@{
+    if (TempData["OrderID"] != null)
+    {
+        <h3>Message: @TempData["OrderID"]</h3>
+    }
+    TempData.Keep("OrderID");
+}
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Създай нов</a>
 </p>
+<p>
+    <a asp-action="Create">Поръчай избраните</a>
+</p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProfileType)
+             <th>
+                Профил тип
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProfileTypeMaterial)
+               ProfileTypeMaterial
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WindowType)
+                WindowType
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WingsCount)
+                WingsCount
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User)
+                Length
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Length)
+                Hight
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Hight)
+             <th>
+                Цена
             </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model) {
+    <tbody>                        
+ @foreach (var item in Model) 
+ {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ProfileType)
@@ -49,23 +60,21 @@
                 @Html.DisplayFor(modelItem => item.WindowType)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.WingsCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Length)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Hight)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.GlassPaneId">Edit</a> |
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                <a asp-action="CalculatePrice" asp-route-id="@item.GlassPaneId">Изчисли цена</a> |
+                <a asp-action="AddToCart" asp-route-id="@item.GlassPaneId">Добави в количка</a> |
                 <a asp-action="Details" asp-route-id="@item.GlassPaneId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.GlassPaneId">Delete</a>
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>

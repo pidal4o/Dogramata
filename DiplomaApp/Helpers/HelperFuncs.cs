@@ -55,7 +55,11 @@ namespace DiplomaApp.Helpers
 
             var res = kasa * price6 + delitel * price6 + djam + obkovOtwarqne + obkovOtwarqneKombi;
 
-            return 123;
+            glassPane.TotalPrice = res;
+
+            _context.GlassPaneParent.Attach(glassPane);
+            await _context.SaveChangesAsync();
+            return res;
         }
 
         private async Task<double> GetPrice(string element) =>

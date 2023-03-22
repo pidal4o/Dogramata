@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using DiplomaApp.Models.Order;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DiplomaApp.Models.GlassPane
 {
@@ -15,12 +17,17 @@ namespace DiplomaApp.Models.GlassPane
 
         public string UserId { get; set; }
         public IdentityUser User { get; set; }
+        public double? TotalPrice { get; set; }
+
+        public IEnumerable<OrderProducts> OrderProducts { get; set; }
 
     }
 
     public enum ProfileTypeEnum
     {
+        [Display(Name = "Дву камерна")]
         Two,
+        [Display(Name = "Три камерна")]
         Three,
         Four,
         Five,

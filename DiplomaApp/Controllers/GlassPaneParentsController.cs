@@ -14,7 +14,7 @@ namespace DiplomaApp.Controllers
     public class GlassPaneParentsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IHelperFuncs _helperFuncs; 
+        private readonly IHelperFuncs _helperFuncs;
 
         public GlassPaneParentsController(
             ApplicationDbContext context,
@@ -24,13 +24,30 @@ namespace DiplomaApp.Controllers
             _helperFuncs = helperFuncs;
         }
 
+        [TempData]
+        public string OrderID { get; set; }
+
         // GET: GlassPaneParents
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.GlassPaneParent.Include(g => g.User);
-            var asd = await _helperFuncs.CalculatePrice(30);
+            var applicationDbContext = _context.GlassPaneParent.Include(a => a.Wings).Include(g => g.User);
 
             return View(await applicationDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> CalculatePrice(int id)
+        { 
+            var asd = await _helperFuncs.CalculatePrice(id);
+
+            var applicationDbContext = _context.GlassPaneParent.Include(g => g.User);
+            return View("Index", await applicationDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> AddToCart(int id)
+        {
+            OrderID = id.ToString();
+            var applicationDbContext = _context.GlassPaneParent.Include(g => g.User);
+            return View("Index", await applicationDbContext.ToListAsync());
         }
 
         // GET: GlassPaneParents/Details/5
@@ -94,17 +111,6 @@ namespace DiplomaApp.Controllers
             await _context.SaveChangesAsync();
 
              return RedirectToAction(nameof(Index), "Wings", new { id = glassPaneParent .GlassPaneId});
-
-
-            //if (ModelState.IsValid)
-            //{
-            //    _context.Add(glassPaneParent);
-
-            //    await _context.SaveChangesAsync();
-            //    return RedirectToAction(nameof(Index));
-            //}
-            //ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", glassPaneParent.UserId);
-            //return View(glassPaneParent);
         }
 
         // GET: GlassPaneParents/Edit/5

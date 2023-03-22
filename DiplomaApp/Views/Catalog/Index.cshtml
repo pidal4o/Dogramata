@@ -1,5 +1,4 @@
-﻿
-@model IEnumerable<DiplomaApp.Models.Catalog.Catalog>
+﻿@model IEnumerable<DiplomaApp.Models.Catalog.Catalog>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,7 +12,7 @@
     @foreach (var catalog in Model)
     {
         <tr>
-            <td><img src="/images/product_image.jpg" alt="error" /></td>
+            <td><img src="@catalog.ImageUrl" alt="error" /></td>
             <td>@catalog.Name</td>
             <td>@catalog.Price</td>
         </tr>

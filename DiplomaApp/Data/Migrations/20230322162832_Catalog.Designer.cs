@@ -4,6 +4,7 @@ using DiplomaApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DiplomaApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230322162832_Catalog")]
+    partial class Catalog
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,9 +66,6 @@ namespace DiplomaApp.Data.Migrations
                     b.Property<int>("ProfileTypeMaterial")
                         .HasColumnType("int");
 
-                    b.Property<double?>("TotalPrice")
-                        .HasColumnType("float");
-
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
@@ -114,46 +113,6 @@ namespace DiplomaApp.Data.Migrations
                     b.HasIndex("GlassPaneId");
 
                     b.ToTable("Wing");
-                });
-
-            modelBuilder.Entity("DiplomaApp.Models.Order.Order", b =>
-                {
-                    b.Property<int>("OrderId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"), 1L, 1);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("OrderStatus")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("OrderId");
-
-                    b.ToTable("Order");
-                });
-
-            modelBuilder.Entity("DiplomaApp.Models.Order.OrderProducts", b =>
-                {
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("GlassPaneId")
-                        .HasColumnType("int");
-
-                    b.HasKey("OrderId", "GlassPaneId");
-
-                    b.HasIndex("GlassPaneId");
-
-                    b.ToTable("OrderProducts");
                 });
 
             modelBuilder.Entity("DiplomaApp.Models.PPD", b =>
@@ -419,25 +378,6 @@ namespace DiplomaApp.Data.Migrations
                     b.Navigation("GlassPane");
                 });
 
-            modelBuilder.Entity("DiplomaApp.Models.Order.OrderProducts", b =>
-                {
-                    b.HasOne("DiplomaApp.Models.GlassPane.GlassPaneParent", "GlassPaneParent")
-                        .WithMany("OrderProducts")
-                        .HasForeignKey("GlassPaneId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DiplomaApp.Models.Order.Order", "Order")
-                        .WithMany("OrderProducts")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("GlassPaneParent");
-
-                    b.Navigation("Order");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -491,14 +431,7 @@ namespace DiplomaApp.Data.Migrations
 
             modelBuilder.Entity("DiplomaApp.Models.GlassPane.GlassPaneParent", b =>
                 {
-                    b.Navigation("OrderProducts");
-
                     b.Navigation("Wings");
-                });
-
-            modelBuilder.Entity("DiplomaApp.Models.Order.Order", b =>
-                {
-                    b.Navigation("OrderProducts");
                 });
 #pragma warning restore 612, 618
         }
