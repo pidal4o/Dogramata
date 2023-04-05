@@ -11,10 +11,14 @@
     </tr>
     @foreach (var catalog in Model)
     {
+       
+
         <tr>
-            <td><img src="@catalog.ImageUrl" alt="error" /></td>
+            <td><img src=@catalog.ImageUrl alt="error" /></td>
             <td>@catalog.Name</td>
             <td>@catalog.Price</td>
         </tr>
+
+  
     }
 </table>

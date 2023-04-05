@@ -17,19 +17,19 @@
                 Профил тип
             </th>
             <th>
-               ProfileTypeMaterial
+               Камери
             </th>
             <th>
-                WindowType
+                Стъклопакет
             </th>
             <th>
-                WingsCount
+                Крила
             </th>
             <th>
-                Length
+                Дължина
             </th>
             <th>
-                Hight
+                Височина
             </th>
              <th>
                 Цена
@@ -50,6 +50,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.WindowType)
             </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.WingsCount)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Length)
             </td>
@@ -62,8 +65,8 @@
             <td>
                 <a asp-action="CalculatePrice" asp-route-id="@item.GlassPaneId">Изчисли цена</a> |
                 <a asp-action="AddToCart" asp-route-id="@item.GlassPaneId">Добави в количка</a> |
-                <a asp-action="Details" asp-route-id="@item.GlassPaneId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.GlassPaneId">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.GlassPaneId">Детайли</a> |
+                <a asp-action="Delete" asp-route-id="@item.GlassPaneId">Изтриване</a>
             </td>
         </tr>
         }

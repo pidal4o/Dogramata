@@ -29,22 +29,31 @@ namespace DiplomaApp.Models.GlassPane
         Two,
         [Display(Name = "Три камерна")]
         Three,
+        [Display(Name = "Четири камерна")]
         Four,
+        [Display(Name = "Пет камерна")]
         Five,
+        [Display(Name = "Шест камерна")]
         Six
     }
 
     public enum ProfileTypeMaterialEnum
     {
+        [Display(Name = "PVC")]
         PVC,
+        [Display(Name = "Алуминий")]
         Allu,
+        [Display(Name = "Дърво")]
         Wood
     }
 
     public enum WindowTypeEnum
-    { 
+    {
+        [Display(Name = "Двоен стъклопакет")]
         DoubleWin,
+        [Display(Name = "Троен стклопакет")]
         TripleWin,
+        [Display(Name = "Нулев")]
         None
     }
 

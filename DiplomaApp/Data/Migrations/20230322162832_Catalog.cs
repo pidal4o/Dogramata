@@ -23,13 +23,7 @@ namespace DiplomaApp.Data.Migrations
                     table.PrimaryKey("PK_Catalog", x => x.Id);
                 });
 
-          migrationBuilder.InsertData(
-          table: "Catalog",
-          columns: new[] { "Name", "Price", "ImageUrl" },
-          values: new object[,]
-          {
-                 { "PVC","21.80","images/pvc.jpg"},
-          });
+         
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
