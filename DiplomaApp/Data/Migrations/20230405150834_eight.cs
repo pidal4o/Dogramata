@@ -13,7 +13,7 @@ namespace DiplomaApp.Data.Migrations
             columns: new[] { "Name", "Price", "ImageUrl" },
             values: new object[,]
             {
-                   { "PVC","21,80","images/PVC.png"},
+                   { "PVC","21.80","images/PVC.png"},
                    { "Allu","25","images/Allu.png"},
                    { "Wood","45","images/Wood.png"},
 

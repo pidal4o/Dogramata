@@ -161,28 +161,6 @@ namespace DiplomaApp.Data.Migrations
                     b.ToTable("OrderProducts");
                 });
 
-            modelBuilder.Entity("DiplomaApp.Models.PPD", b =>
-                {
-                    b.Property<int>("PPDId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PPDId"), 1L, 1);
-
-                    b.Property<double>("PPDPrice")
-                        .HasColumnType("float");
-
-                    b.Property<string>("PPDType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("PPDWidth")
-                        .HasColumnType("float");
-
-                    b.HasKey("PPDId");
-
-                    b.ToTable("PPD");
-                });
-
             modelBuilder.Entity("DiplomaApp.Models.Price", b =>
                 {
                     b.Property<int>("Id")

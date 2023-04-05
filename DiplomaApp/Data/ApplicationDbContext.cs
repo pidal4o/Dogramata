@@ -31,7 +31,6 @@ namespace DiplomaApp.Data
                 .HasForeignKey(bc => bc.GlassPaneId);
         }
 
-        public DbSet<PPD> PPD { get; set; }
         public DbSet<GlassPaneParent> GlassPaneParent { set; get; }
         public DbSet<Wing> Wing { set; get; }
         public DbSet<Price> Price { get; set; }

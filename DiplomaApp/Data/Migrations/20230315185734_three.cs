@@ -25,14 +25,6 @@ namespace DiplomaApp.Data.Migrations
                 table: "Wing");
 
             migrationBuilder.AlterColumn<string>(
-                name: "PPDType",
-                table: "PPD",
-                type: "nvarchar(max)",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
-
-            migrationBuilder.AlterColumn<string>(
                 name: "UserId",
                 table: "GlassPaneParent",
                 type: "nvarchar(450)",
@@ -81,16 +73,6 @@ namespace DiplomaApp.Data.Migrations
                 type: "int",
                 nullable: false,
                 defaultValue: 0);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "PPDType",
-                table: "PPD",
-                type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)",
-                oldNullable: true);
 
             migrationBuilder.AlterColumn<string>(
                 name: "UserId",
