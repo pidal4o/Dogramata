@@ -1,0 +1,96 @@
+﻿@model DiplomaApp.Models.Order.Order
+
+<h1>Количка</h1>
+
+@if (Model != null)
+{
+<table class="table">
+    <thead>
+        <tr>
+             <th>
+               колона 1
+            </th>
+            <th>
+              колона 2
+            </th>
+             <th>
+               колона 3
+            </th>
+            <th>
+              колона 4
+            </th>
+             <th>
+               колона 5
+            </th>
+            <th>
+              колона 6
+            </th>
+             <th>
+               колона 7
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>     
+            @foreach (var item in Model.OrderProducts)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GlassPaneParent.GlassPaneId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GlassPaneParent.ProfileType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GlassPaneParent.ProfileTypeMaterial)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GlassPaneParent.WindowType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GlassPaneParent.Length)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GlassPaneParent.Hight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GlassPaneParent.TotalPrice)
+                    </td>
+                    <td>
+                        <a asp-action="RemoveFromCart" asp-route-id="@item.GlassPaneParent.GlassPaneId">Премахни от количката</a> |
+                    </td>
+                </tr>
+            }
+      
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="MakeOrder">
+            <input type="hidden" asp-for="OrderId" />
+            <div class="form-group">
+                <label class="control-label">Име:</label>
+                <input asp-for="Name" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label class="control-label">Телефон:</label>
+                <input asp-for="Phone" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Адрес:</label>
+                <input asp-for="Address" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Направи поръчка" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    </div>
+}
+else
+{
+    <h3 style="color:green;"> Вашата количка е празна</h3>
+
+}

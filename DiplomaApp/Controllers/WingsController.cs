@@ -79,7 +79,8 @@ namespace DiplomaApp.Controllers
             await _context.SaveChangesAsync();
 
 
-            return View(null);
+            return RedirectToAction("Index", "GlassPaneParents");
+
         }
 
         // GET: Wings/Edit/5

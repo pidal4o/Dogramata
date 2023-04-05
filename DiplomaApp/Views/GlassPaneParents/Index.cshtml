@@ -5,18 +5,9 @@
 }
 
 <h1>Index</h1>
-@{
-    if (TempData["OrderID"] != null)
-    {
-        <h3>Message: @TempData["OrderID"]</h3>
-    }
-    TempData.Keep("OrderID");
-}
+
 <p>
     <a asp-action="Create">Създай нов</a>
-</p>
-<p>
-    <a asp-action="Create">Поръчай избраните</a>
 </p>
 
 <table class="table">

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DiplomaApp.Data;
 using DiplomaApp.Models.GlassPane;
 using DiplomaApp.Helpers;
+using DiplomaApp.Models.Order;
 
 namespace DiplomaApp.Controllers
 {
@@ -23,9 +24,6 @@ namespace DiplomaApp.Controllers
             _context = context;
             _helperFuncs = helperFuncs;
         }
-
-        [TempData]
-        public string OrderID { get; set; }
 
         // GET: GlassPaneParents
         public async Task<IActionResult> Index()
@@ -45,7 +43,17 @@ namespace DiplomaApp.Controllers
 
         public async Task<IActionResult> AddToCart(int id)
         {
-            OrderID = id.ToString();
+            var order = await _context.Order.Where(o => o.OrderStatus == OrderStatusEnum.none).FirstOrDefaultAsync();
+            if (order == null)
+            {
+                order = new Order();
+            }
+
+            order.OrderProducts.Add(new OrderProducts() {OrderId = order.OrderId, GlassPaneId = id });
+
+             _context.Order.UpdateRange(order);
+
+            await _context.SaveChangesAsync();
             var applicationDbContext = _context.GlassPaneParent.Include(g => g.User);
             return View("Index", await applicationDbContext.ToListAsync());
         }
