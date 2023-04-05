@@ -18,8 +18,10 @@ namespace DiplomaApp.Models.GlassPane
     }
 
     public enum OpenDirection
-    { 
+    {
+        [Display(Name = "Дясно отваряне")]
         Right,
+        [Display(Name = "Ляво отваряне")]
         Left
     }
 

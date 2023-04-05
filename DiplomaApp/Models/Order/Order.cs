@@ -14,13 +14,20 @@ namespace DiplomaApp.Models.Order
     }
 
     public enum OrderStatusEnum
-    { 
+    {
+        [Display(Name ="Няма поръчка")]
         none,
+        [Display(Name = "В изчакване")]
         await,
+        [Display(Name = "Удобрена")]
         approved,
+        [Display(Name = "В изработка")]
         inProgress,
+        [Display(Name = "Доставя се")]
         delivery,
+        [Display(Name = "Завършена")]
         complete,
+        [Display(Name = "Отхвърлена")]
         rejected
     }
 }
