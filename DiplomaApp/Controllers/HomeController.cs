@@ -20,10 +20,16 @@ namespace DiplomaApp.Controllers
         {
             return View();
         }
-        [Authorize(Roles = "Admin")]
+
+        [Authorize (Roles = "Admin")]
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult Contacts()
+        {
+            return View(Contacts);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

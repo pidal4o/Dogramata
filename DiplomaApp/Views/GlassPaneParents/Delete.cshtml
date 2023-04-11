@@ -4,60 +4,53 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<h1>Премахване на поръчката</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Сигурни ли сте че искате да изтриете поръчката?</h3>
 <div>
-    <h4>GlassPaneParent</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProfileType)
+            Профил тип
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProfileType)
+            @Html.DisplayFor(model => model.ProfileType) 
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProfileTypeMaterial)
+            Материал
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ProfileTypeMaterial)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WindowType)
+            Стъклопакет
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.WindowType)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WingsCount)
+            Брой крила
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.WingsCount)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.User)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Length)
+            Дължина
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Length)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Hight)
+            Височина
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Hight)
         </dd>
     </dl>
     
-    <form asp-action="Delete">
+    <form asp-action="Delete"> 
         <input type="hidden" asp-for="GlassPaneId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Премахване" class="btn btn-danger"  /> |
+        <a asp-action="Index">Назад</a>
     </form>
 </div>

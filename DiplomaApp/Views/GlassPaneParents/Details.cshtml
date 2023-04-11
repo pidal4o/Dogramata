@@ -4,50 +4,43 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Детайли</h1>
 
 <div>
-    <h4>GlassPaneParent</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProfileType)
+         <dt class = "col-sm-2">
+            Профил тип
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProfileType)
+            @Html.DisplayFor(model => model.ProfileType) 
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProfileTypeMaterial)
+            Материал
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ProfileTypeMaterial)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WindowType)
+            Стъклопакет
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.WindowType)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WingsCount)
+            Брой крила
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.WingsCount)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.User)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Length)
+            Дължина
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Length)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Hight)
+            Височина
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Hight)
@@ -55,6 +48,5 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.GlassPaneId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Назад</a>
 </div>

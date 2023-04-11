@@ -121,58 +121,7 @@ namespace DiplomaApp.Controllers
              return RedirectToAction(nameof(Index), "Wings", new { id = glassPaneParent .GlassPaneId});
         }
 
-        // GET: GlassPaneParents/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.GlassPaneParent == null)
-            {
-                return NotFound();
-            }
-
-            var glassPaneParent = await _context.GlassPaneParent.Include(a => a.Wings).FirstOrDefaultAsync(s => s.GlassPaneId == id);
-            if (glassPaneParent == null)
-            {
-                return NotFound();
-            }
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", glassPaneParent.UserId);
-            return View(glassPaneParent);
-        }
-
-        // POST: GlassPaneParents/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("GlassPaneId,ProfileType,ProfileTypeMaterial,WindowType,WingsCount,UserId,Length,Hight")] GlassPaneParent glassPaneParent)
-        {
-            if (id != glassPaneParent.GlassPaneId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(glassPaneParent);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!GlassPaneParentExists(glassPaneParent.GlassPaneId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", glassPaneParent.UserId);
-            return View(glassPaneParent);
-        }
+        
 
         // GET: GlassPaneParents/Delete/5
         public async Task<IActionResult> Delete(int? id)

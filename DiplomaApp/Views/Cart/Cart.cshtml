@@ -8,25 +8,25 @@
     <thead>
         <tr>
              <th>
-               колона 1
+               Камери
             </th>
             <th>
-              колона 2
+              Материал
             </th>
              <th>
-               колона 3
+               Стъклопакет
             </th>
             <th>
-              колона 4
+              Дължина
             </th>
              <th>
-               колона 5
+               Височина
             </th>
             <th>
-              колона 6
+              Цена
             </th>
              <th>
-               колона 7
+               Изчисти
             </th>
 
         </tr>
@@ -35,9 +35,7 @@
             @foreach (var item in Model.OrderProducts)
             {
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.GlassPaneParent.GlassPaneId)
-                    </td>
+                 
                     <td>
                         @Html.DisplayFor(modelItem => item.GlassPaneParent.ProfileType)
                     </td>

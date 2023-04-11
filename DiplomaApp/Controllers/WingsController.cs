@@ -26,24 +26,6 @@ namespace DiplomaApp.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Wings/Details/5
-        //public async Task<IActionResult> Details(int? id)
-        //{
-        //    if (id == null || _context.Wing == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var wing = await _context.Wing
-        //        .Include(w => w.GlassPane)
-        //        .FirstOrDefaultAsync(m => m.WingId == id);
-        //    if (wing == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(wing);
-        //}
 
         // GET: Wings/Create
         public IActionResult Create()
@@ -75,108 +57,13 @@ namespace DiplomaApp.Controllers
             }
 
             _context.Wing.UpdateRange(wing);
-            
+
             await _context.SaveChangesAsync();
 
 
             return RedirectToAction("Index", "GlassPaneParents");
 
         }
-
-        //// GET: Wings/Edit/5
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    if (id == null || _context.Wing == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var wing = await _context.Wing.FindAsync(id);
-        //    if (wing == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    ViewData["GlassPaneId"] = new SelectList(_context.GlassPaneParent, "GlassPaneId", "GlassPaneId", wing.GlassPaneId);
-        //    return View(wing);
-        //}
-
-        //// POST: Wings/Edit/5
-        //// To protect from overposting attacks, enable the specific properties you want to bind to.
-        //// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(int id, [Bind("WingId,IsOpen,IsCombined,OpenDirection,GlassPaneId,Length,Hight")] Wing wing)
-        //{
-        //    if (id != wing.WingId)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            _context.Update(wing);
-        //            await _context.SaveChangesAsync();
-        //        }
-        //        catch (DbUpdateConcurrencyException)
-        //        {
-        //            if (!WingExists(wing.WingId))
-        //            {
-        //                return NotFound();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
-        //        }
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    ViewData["GlassPaneId"] = new SelectList(_context.GlassPaneParent, "GlassPaneId", "GlassPaneId", wing.GlassPaneId);
-        //    return View(wing);
-        //}
-
-        //// GET: Wings/Delete/5
-        //public async Task<IActionResult> Delete(int? id)
-        //{
-        //    if (id == null || _context.Wing == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var wing = await _context.Wing
-        //        .Include(w => w.GlassPane)
-        //        .FirstOrDefaultAsync(m => m.WingId == id);
-        //    if (wing == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(wing);
-        //}
-
-        //// POST: Wings/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    if (_context.Wing == null)
-        //    {
-        //        return Problem("Entity set 'ApplicationDbContext.Wing'  is null.");
-        //    }
-        //    var wing = await _context.Wing.FindAsync(id);
-        //    if (wing != null)
-        //    {
-        //        _context.Wing.Remove(wing);
-        //    }
-            
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
-
-        //private bool WingExists(int id)
-        //{
-        //  return _context.Wing.Any(e => e.WingId == id);
-        //}
     }
+       
 }

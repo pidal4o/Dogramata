@@ -4,28 +4,25 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Статус на поръчките</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Име
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Phone)
+               Номер
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Address)
+                Адрес
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OrderDate)
+                Дата на поръчката
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OrderStatus)
+                Статус
             </th>
             <th></th>
         </tr>
@@ -49,9 +46,9 @@
                 @Html.DisplayFor(modelItem => item.OrderStatus)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.OrderId">Редактиране</a> |
+                <a asp-action="Details" asp-route-id="@item.OrderId">Детайли</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrderId">Изтриване</a>
             </td>
         </tr>
 }
