@@ -45,7 +45,7 @@ namespace DiplomaApp.Helpers
             {
                 if (krilo.IsOpen)
                 {
-                    profileLenght += (krilo.Length + krilo.Hight) * 2;
+                    profileLenght += ((krilo.Length + krilo.Hight) * 2) / 1000;
                 }
             }
 
