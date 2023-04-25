@@ -57,7 +57,7 @@ namespace DiplomaApp.Helpers
 
             var res = kasa * price6 + delitel * price6 + djam + obkovOtwarqne + obkovOtwarqneKombi;
 
-            glassPane.TotalPrice = Math.Round(res, 3);
+            glassPane.TotalPrice = Math.Round(res, 2);
 
             _context.GlassPaneParent.Attach(glassPane);
             await _context.SaveChangesAsync();
