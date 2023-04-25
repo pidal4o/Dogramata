@@ -3,12 +3,12 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Поръчка на дограма</h1>
-
-<p>
-    <a asp-action="Create">Направи поръчка</a>
-</p>
+<div class="d-flex align-items-end mb-3">
+    <h1 class="mb-0">Поръчка на дограма</h1>
+    <p class="order-btn top">
+        <a asp-action="Create">Направи поръчка</a>
+    </p>
+</div>
 
 <table class="table">
     <thead>
@@ -63,10 +63,10 @@
                 @Html.DisplayFor(modelItem => item.TotalPrice)
             </td>
             <td>
-                <a asp-action="CalculatePrice" asp-route-id="@item.GlassPaneId">Изчисли цена</a> |
-                <a asp-action="AddToCart" asp-route-id="@item.GlassPaneId">Добави в количка</a> |
-                <a asp-action="Details" asp-route-id="@item.GlassPaneId">Детайли</a> |
-                <a asp-action="Delete" asp-route-id="@item.GlassPaneId">Изтриване</a>
+                <p class="order-btn"><a asp-action="CalculatePrice" asp-route-id="@item.GlassPaneId">Изчисли цена</a></p>
+                <p class="order-btn"><a asp-action="AddToCart" asp-route-id="@item.GlassPaneId">Добави в количка</a></p>
+                <p class="order-btn"><a asp-action="Details" asp-route-id="@item.GlassPaneId">Детайли</a></p>
+                <p class="order-btn"><a asp-action="Delete" asp-route-id="@item.GlassPaneId">Изтриване</a></p>             
             </td>
         </tr>
         }

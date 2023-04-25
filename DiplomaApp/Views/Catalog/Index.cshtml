@@ -3,22 +3,24 @@
 @{
     ViewData["Title"] = "Index";
 }
-<table>
-    <tr>
-        <th>Снимка</th>
-        <th>Име</th>
-        <th>Цена</th>
-    </tr>
-    @foreach (var catalog in Model)
-    {
+<div class=catalog>
+    <table>
+        <tr>
+            <th>Снимка</th>
+            <th>Име</th>
+            <th>Цена</th>
+        </tr>
+        @foreach (var catalog in Model)
+        {
        
 
-        <tr>
-            <td><img src=@catalog.ImageUrl alt="error" /></td>
-            <td>@catalog.Name</td>
-            <td>@catalog.Price</td>
-        </tr>
+            <tr>
+                <td><img src=@catalog.ImageUrl alt="error" /></td>
+                <td>@catalog.Name</td>
+                <td>@catalog.Price</td>
+            </tr>
 
   
-    }
-</table>
+        }
+    </table>
+</div>

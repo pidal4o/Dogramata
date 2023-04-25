@@ -55,7 +55,9 @@
                         @Html.DisplayFor(modelItem => item.GlassPaneParent.TotalPrice)
                     </td>
                     <td>
-                        <a asp-action="RemoveFromCart" asp-route-id="@item.GlassPaneParent.GlassPaneId">Премахни от количката</a>
+                        <p class="order-btn">
+                            <a asp-action="RemoveFromCart" asp-route-id="@item.GlassPaneParent.GlassPaneId">Премахни от количката</a>
+                        </p>
                     </td>
                 </tr>
             }

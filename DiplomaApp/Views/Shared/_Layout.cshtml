@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DiplomaApp</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -20,22 +20,22 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Начало</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Начало</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="GlassPaneParents" asp-action="Index">Дограма-Поръчка</a>
+                            <a class="nav-link" asp-area="" asp-controller="GlassPaneParents" asp-action="Index">Дограма-Поръчка</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Cart">Количка</a>
+                            <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="Cart">Количка</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Catalog" asp-action="Index">Каталог</a>
+                            <a class="nav-link" asp-area="" asp-controller="Catalog" asp-action="Index">Каталог</a>
                         </li>
                          <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Статус</a>
+                            <a class="nav-link" asp-area="" asp-controller="Orders" asp-action="Index">Статус</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contacts">Контакти</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contacts">Контакти</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -50,8 +50,8 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - DiplomaApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container text-center">
+            &copy; 2023 - DiplomaApp
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

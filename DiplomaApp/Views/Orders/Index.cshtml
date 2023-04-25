@@ -46,9 +46,15 @@
                 @Html.DisplayFor(modelItem => item.OrderStatus)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.OrderId">Редактиране</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderId">Детайли</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderId">Изтриване</a>
+                <p class="order-btn">
+                    <a asp-action="Edit" asp-route-id="@item.OrderId">Редактиране</a> 
+                </p>
+                 <p class="order-btn">
+                     <a asp-action="Details" asp-route-id="@item.OrderId">Детайли</a> 
+                 </p>
+                 <p class="order-btn">
+                     <a asp-action="Delete" asp-route-id="@item.OrderId">Изтриване</a>
+                 </p>
             </td>
         </tr>
 }

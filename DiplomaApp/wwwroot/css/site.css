@@ -13,6 +13,124 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+.hero-image h1{
+    color:#0074bd;
+    padding:50px;
+    font-weight:700;
+}
+.navbar {
+    background-color: #141444;
+}
+.navbar .navbar-brand, .navbar.navbar-expand-sm .navbar-nav .nav-item .nav-link {
+  color: white;
+}
+.navbar.navbar-expand-sm .navbar-nav .nav-item .nav-link:hover {
+  text-decoration-line: underline;
+  text-underline-offset: 5px;
+}
+#account h2, #registerForm h2{
+    font-size: 24px;
+}
+#account .form-floating input, #registerForm .form-floating input {
+    margin-bottom: 16px;
+}
+.btn-primary {
+    background-color: #0074bd;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+.btn-primary:hover{
+   background-color: #141444;
+}
+#account a, #registerForm a{
+    text-decoration: none;
+}
+#account a:hover, #registerForm a:hover{
+    text-decoration:underline;
+}
+#account p, #registerForm p {
+    margin-bottom: 8px;
+}
+.order-btn {
+    border: 1px solid #0074bd;
+    border-radius: 4px;
+    padding: 6px 10px;
+    width: fit-content;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    display: inline-block;
+    margin: 0 8px 0 0;
+    height: fit-content;
+    line-height: 1.5;
+}
+.btn-danger {
+    padding: 6px 10px;
+    font-size: 12px;
+    margin-bottom:0;
+    margin-right:8px;
+    text-transform: uppercase;
+}
+.order-btn.top {
+    background-color: #0074bd;
+    margin-left: auto;
+}
+.order-btn.top a{
+    color:white;
+}
+.order-btn a{
+    color: #0074bd;
+    text-decoration: none;
+}
+.order-btn:hover {
+    background-color: #141444;
+    border-color:#141444;
+}
+.order-btn:hover a{
+    color:white;
+}
+.table tbody tr td{
+    vertical-align:middle;
+}
+.form-group{
+    margin-bottom:12px;
+}
+select {
+    border: 1px solid #a59f9f;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size:12px;
+    margin-left:12px;
+}
+select:focus-visible{
+    outline:none;
+}
+.control-label{
+    margin-bottom:4px;
+}
+input {
+    margin-bottom: 16px;
+}
+.catalog img{
+   max-width: 300px;
+   max-height: 300px;
+}
+.catalog table tbody tr th {
+    border-left: 1px solid lightgray;
+    padding: 12px 24px;
+}
+.catalog table tbody tr {
+    border: 1px solid lightgray;
+}
+.catalog table tbody tr td{
+    border-left:1px solid lightgray;
+    padding:12px 24px;
+    vertical-align:top;
+}
+.catalog table tbody tr td:last-child{
+    border-right:none;
+}
+.border-top.footer.text-muted, .border-top.footer.text-muted a {
+    background: #141444;
+    color: white !important;
 }
