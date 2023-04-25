@@ -38,6 +38,8 @@ namespace DiplomaApp.Helpers
             var price5 = 43; // обков комби
             var price6 = await GetPrice(glassPane.ProfileType.ToString()); // камери
             var profileLenght = 0.0;
+            var glassPaneLength = glassPane.Length / 1000;
+            var glassPaneHeight= glassPane.Hight / 1000;
 
             foreach (var krilo in glassPane.Wings)
             {
@@ -47,15 +49,15 @@ namespace DiplomaApp.Helpers
                 }
             }
 
-            var kasa = (((glassPane.Length + glassPane.Hight) * 2) + profileLenght) * price1;
-            var delitel = ((glassPane.Hight * price1) + price2) * (glassPane.WingsCount - 1);
-            var djam = ((glassPane.Length * glassPane.Hight) * price3) * 0.95;
+            var kasa = (((glassPaneLength + glassPaneHeight) * 2) + profileLenght) * price1;
+            var delitel = ((glassPaneHeight * price1) + price2) * (glassPane.WingsCount - 1);
+            var djam = ((glassPaneLength * glassPaneHeight) * price3) * 0.95;
             var obkovOtwarqne = glassPane.Wings.Where(a => a.IsOpen == true && a.IsCombined == false).Count() * price4;
             var obkovOtwarqneKombi = glassPane.Wings.Where(a => a.IsOpen == true && a.IsCombined == true).Count() * price5;
 
             var res = kasa * price6 + delitel * price6 + djam + obkovOtwarqne + obkovOtwarqneKombi;
 
-            glassPane.TotalPrice = res;
+            glassPane.TotalPrice = Math.Round(res, 3);
 
             _context.GlassPaneParent.Attach(glassPane);
             await _context.SaveChangesAsync();
