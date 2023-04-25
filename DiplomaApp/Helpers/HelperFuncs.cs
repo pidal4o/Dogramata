@@ -29,7 +29,7 @@ namespace DiplomaApp.Helpers
         {
             var userId = _userManager.GetUserId(_httpContext.HttpContext.User);
 
-            var glassPane = await _context.GlassPaneParent.Include(a => a.Wings).FirstOrDefaultAsync(s => s.GlassPaneId == glassPaneId && s.UserId == userId);
+            var glassPane = await _context.GlassPaneParent.Include(a => a.Wings).FirstOrDefaultAsync(s => s.GlassPaneId == glassPaneId);
 
             var price1 = await GetPrice(glassPane.ProfileTypeMaterial.ToString()); //21.80
             var price2 = 10; // цена за делител 
